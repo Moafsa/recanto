@@ -1,0 +1,343 @@
+{
+ "piscinas": [
+  {
+   "src": "/fotos/piscinas-01.webp",
+   "w": 680,
+   "h": 436
+  },
+  {
+   "src": "/fotos/piscinas-02.webp",
+   "w": 680,
+   "h": 510
+  },
+  {
+   "src": "/fotos/piscinas-03.webp",
+   "w": 680,
+   "h": 479
+  },
+  {
+   "src": "/fotos/piscinas-04.webp",
+   "w": 680,
+   "h": 459
+  },
+  {
+   "src": "/fotos/piscinas-05.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/piscinas-06.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/piscinas-07.webp",
+   "w": 680,
+   "h": 510
+  },
+  {
+   "src": "/fotos/piscinas-08.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/piscinas-09.webp",
+   "w": 680,
+   "h": 440
+  },
+  {
+   "src": "/fotos/piscinas-10.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/piscinas-11.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/piscinas-12.webp",
+   "w": 680,
+   "h": 505
+  },
+  {
+   "src": "/fotos/piscinas-13.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/piscinas-14.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/piscinas-15.webp",
+   "w": 680,
+   "h": 459
+  },
+  {
+   "src": "/fotos/piscinas-16.webp",
+   "w": 680,
+   "h": 476
+  }
+ ],
+ "toboagas": [
+  {
+   "src": "/fotos/toboagas-01.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/toboagas-02.webp",
+   "w": 680,
+   "h": 411
+  },
+  {
+   "src": "/fotos/toboagas-03.webp",
+   "w": 680,
+   "h": 459
+  },
+  {
+   "src": "/fotos/toboagas-04.webp",
+   "w": 387,
+   "h": 510
+  },
+  {
+   "src": "/fotos/toboagas-05.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/toboagas-06.webp",
+   "w": 382,
+   "h": 510
+  }
+ ],
+ "infantil": [
+  {
+   "src": "/fotos/infantil-01.webp",
+   "w": 359,
+   "h": 510
+  },
+  {
+   "src": "/fotos/infantil-02.webp",
+   "w": 548,
+   "h": 510
+  },
+  {
+   "src": "/fotos/infantil-03.webp",
+   "w": 366,
+   "h": 510
+  },
+  {
+   "src": "/fotos/infantil-04.webp",
+   "w": 357,
+   "h": 510
+  },
+  {
+   "src": "/fotos/infantil-05.webp",
+   "w": 357,
+   "h": 510
+  },
+  {
+   "src": "/fotos/infantil-06.webp",
+   "w": 343,
+   "h": 510
+  },
+  {
+   "src": "/fotos/infantil-07.webp",
+   "w": 235,
+   "h": 510
+  }
+ ],
+ "pedalinhos": [
+  {
+   "src": "/fotos/pedalinhos-01.webp",
+   "w": 680,
+   "h": 510
+  },
+  {
+   "src": "/fotos/pedalinhos-02.webp",
+   "w": 510,
+   "h": 510
+  },
+  {
+   "src": "/fotos/pedalinhos-03.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/pedalinhos-04.webp",
+   "w": 680,
+   "h": 510
+  },
+  {
+   "src": "/fotos/pedalinhos-05.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/pedalinhos-06.webp",
+   "w": 384,
+   "h": 510
+  },
+  {
+   "src": "/fotos/pedalinhos-07.webp",
+   "w": 384,
+   "h": 510
+  },
+  {
+   "src": "/fotos/pedalinhos-08.webp",
+   "w": 680,
+   "h": 510
+  }
+ ],
+ "lagoa": [
+  {
+   "src": "/fotos/lagoa-01.webp",
+   "w": 680,
+   "h": 480
+  },
+  {
+   "src": "/fotos/lagoa-02.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/lagoa-03.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/lagoa-04.webp",
+   "w": 680,
+   "h": 510
+  },
+  {
+   "src": "/fotos/lagoa-05.webp",
+   "w": 680,
+   "h": 510
+  },
+  {
+   "src": "/fotos/lagoa-06.webp",
+   "w": 680,
+   "h": 498
+  }
+ ],
+ "areas": [
+  {
+   "src": "/fotos/areas-01.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/areas-02.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/areas-03.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/areas-04.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/areas-05.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/areas-06.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/areas-07.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/areas-08.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/areas-09.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/areas-10.webp",
+   "w": 680,
+   "h": 510
+  },
+  {
+   "src": "/fotos/areas-11.webp",
+   "w": 680,
+   "h": 510
+  },
+  {
+   "src": "/fotos/areas-12.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/areas-13.webp",
+   "w": 382,
+   "h": 510
+  }
+ ],
+ "brincar": [
+  {
+   "src": "/fotos/brincar-01.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/brincar-02.webp",
+   "w": 382,
+   "h": 510
+  }
+ ],
+ "sede": [
+  {
+   "src": "/fotos/sede-01.webp",
+   "w": 680,
+   "h": 510
+  },
+  {
+   "src": "/fotos/sede-02.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/sede-03.webp",
+   "w": 413,
+   "h": 510
+  },
+  {
+   "src": "/fotos/sede-04.webp",
+   "w": 680,
+   "h": 510
+  },
+  {
+   "src": "/fotos/sede-05.webp",
+   "w": 680,
+   "h": 510
+  },
+  {
+   "src": "/fotos/sede-06.webp",
+   "w": 382,
+   "h": 510
+  },
+  {
+   "src": "/fotos/sede-07.webp",
+   "w": 382,
+   "h": 510
+  }
+ ]
+}

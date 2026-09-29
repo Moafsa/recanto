@@ -1,0 +1,140 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Dev: sqlite. Produção: troque para "postgresql" e ajuste DATABASE_URL.
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// role: "MEMBER" | "STAFF" | "ADMIN"
+model User {
+  id        String   @id @default(cuid())
+  name      String?
+  email     String?  @unique
+  phone     String?  @unique // somente dígitos, com DDI: 5554991239491
+  cpf       String?
+  role      String   @default("MEMBER")
+  createdAt DateTime @default(now())
+
+  titles    Title[]
+  chats     ChatSession[]
+}
+
+model OtpCode {
+  id        String   @id @default(cuid())
+  phone     String
+  codeHash  String
+  attempts  Int      @default(0)
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime @default(now())
+
+  @@index([phone])
+}
+
+// status: "NEW" | "CONTACTED" | "NEGOTIATING" | "WON" | "LOST"
+// source: "SITE" | "WHATSAPP" | "CHAT" | "INSTAGRAM" | "MANUAL"
+model Lead {
+  id        String   @id @default(cuid())
+  name      String?
+  phone     String?
+  email     String?
+  source    String   @default("SITE")
+  status    String   @default("NEW")
+  interest  String?  // "TITULO" | "DIARIA" | "FESTA" | "CAMPING" | "OUTRO"
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  chats     ChatSession[]
+
+  @@index([status])
+  @@index([phone])
+}
+
+// status: "PENDING" (aguardando entrada) | "ACTIVE" | "OVERDUE" | "CANCELLED"
+// lot: "PROMO" | "NORMAL"
+model Title {
+  id           String   @id @default(cuid())
+  number       Int      @unique
+  holderId     String
+  holder       User     @relation(fields: [holderId], references: [id])
+  status       String   @default("PENDING")
+  lot          String   @default("PROMO")
+  totalCents   Int
+  entryCents   Int      @default(20000)
+  installments Int      // 3 | 6 | 12
+  installmentCents Int
+  activatedAt  DateTime?
+  notes        String?
+  createdAt    DateTime @default(now())
+
+  dependents   Dependent[]
+  payments     Payment[]
+}
+
+// relation: "SPOUSE" | "CHILD" | "FATHER" | "MOTHER" | "IN_LAW"
+model Dependent {
+  id        String    @id @default(cuid())
+  titleId   String
+  title     Title     @relation(fields: [titleId], references: [id], onDelete: Cascade)
+  name      String
+  relation  String
+  birthDate DateTime?
+  cpf       String?
+}
+
+// kind: "ENTRY" | "INSTALLMENT"
+// status: "PENDING" | "RECEIVED" | "OVERDUE" | "REFUNDED" | "CANCELLED"
+model Payment {
+  id          String   @id @default(cuid())
+  titleId     String
+  title       Title    @relation(fields: [titleId], references: [id], onDelete: Cascade)
+  asaasId     String?  @unique
+  kind        String
+  number      Int      @default(1)
+  valueCents  Int
+  dueDate     DateTime
+  status      String   @default("PENDING")
+  billingType String   @default("PIX")
+  invoiceUrl  String?
+  paidAt      DateTime?
+  createdAt   DateTime @default(now())
+}
+
+// channel: "SITE" | "PAINEL" | "WHATSAPP"
+model ChatSession {
+  id         String   @id @default(cuid())
+  channel    String
+  externalId String?  // telefone (WhatsApp) ou id anônimo do navegador (site)
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id])
+  leadId     String?
+  lead       Lead?    @relation(fields: [leadId], references: [id])
+  humanTakeover Boolean @default(false) // true = Leo assumiu, IA não responde
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  messages   ChatMessage[]
+
+  @@index([channel, externalId])
+}
+
+// role: "user" | "assistant"
+model ChatMessage {
+  id        String   @id @default(cuid())
+  sessionId String
+  session   ChatSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  role      String
+  content   String
+  createdAt DateTime @default(now())
+
+  @@index([sessionId, createdAt])
+}
+
+model Setting {
+  key   String @id
+  value String
+}

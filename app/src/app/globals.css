@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #03141b;
+  --color-deep: #062b36;
+  --color-lagoon: #0b5566;
+  --color-teal: #19c3b0;
+  --color-aqua: #8ff5e6;
+  --color-sun: #ffc857;
+  --color-coral: #ff7a59;
+  --color-cream: #fff7e8;
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+}
+
+html { background: var(--color-ink); scroll-behavior: auto; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-cream);
+  background: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection { background: var(--color-teal); color: var(--color-ink); }
+
+/* grão de filme sutil sobre tudo */
+body::after {
+  content: ""; position: fixed; inset: -50%; z-index: 90; pointer-events: none; opacity: .06;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation: grain 8s steps(10) infinite;
+}
+@keyframes grain { 0%,100%{transform:translate(0,0)} 20%{transform:translate(-3%,2%)} 40%{transform:translate(2%,-3%)} 60%{transform:translate(-2%,-1%)} 80%{transform:translate(3%,3%)} }
+
+.font-display { font-family: var(--font-display); font-optical-sizing: auto; }
+.text-gradient {
+  background: linear-gradient(100deg, var(--color-aqua), var(--color-teal) 40%, var(--color-sun));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  background-size: 200% auto; animation: shine 6s linear infinite;
+}
+@keyframes shine { to { background-position: 200% center; } }
+
+.glass {
+  background: linear-gradient(135deg, rgb(255 255 255 / .08), rgb(255 255 255 / .02));
+  border: 1px solid rgb(255 255 255 / .12);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+}
+
+/* botão com brilho que percorre */
+.btn-shine { position: relative; overflow: hidden; isolation: isolate; }
+.btn-shine::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(110deg, transparent 30%, rgb(255 255 255 / .55) 50%, transparent 70%);
+  transform: translateX(-120%); transition: transform .8s;
+}
+.btn-shine:hover::after { transform: translateX(120%); }
+
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee-track { animation: marquee 38s linear infinite; width: max-content; }
+.marquee-track:hover { animation-play-state: paused; }
+
+@keyframes floaty { 0%,100%{transform:translateY(0) rotate(0)} 50%{transform:translateY(-14px) rotate(2deg)} }
+.floaty { animation: floaty 7s ease-in-out infinite; }
+
+@keyframes waveMove { to { transform: translateX(-50%); } }
+
+@keyframes pulseRing { 0%{transform:scale(.8);opacity:.7} 100%{transform:scale(2.2);opacity:0} }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; }
+}
+
+/* ───────── barras de rolagem no tema do site ───────── */
+/* Firefox: propriedades padrão. Chrome/Edge/Safari: pseudo-elementos (as padrão desligariam o gradiente). */
+@supports not selector(::-webkit-scrollbar) {
+  * { scrollbar-width: thin; scrollbar-color: rgb(25 195 176 / .55) transparent; }
+  html { scrollbar-color: rgb(25 195 176 / .7) var(--color-ink); }
+}
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+html::-webkit-scrollbar-track { background: var(--color-ink); border-left: 1px solid rgb(255 255 255 / .05); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgb(143 245 230 / .55), rgb(25 195 176 / .55));
+  border-radius: 999px; border: 3px solid transparent; background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, var(--color-aqua), var(--color-teal)); background-clip: padding-box; border: 3px solid transparent; }
+::-webkit-scrollbar-corner { background: transparent; }
+/* barras mais discretas em tabelas, abas e chats */
+.scroll-thin::-webkit-scrollbar { height: 6px; width: 6px; }
+.scroll-thin::-webkit-scrollbar-thumb { border-width: 1px; background: rgb(143 245 230 / .35); background-clip: padding-box; }
+/* esconde a barra em faixas de rolagem horizontal que já têm indicador */
+.scroll-none { scrollbar-width: none; } .scroll-none::-webkit-scrollbar { display: none; }
+select, option { color-scheme: dark; }
